@@ -1,0 +1,125 @@
+{
+  "hotel": [
+    {
+      "num_hotel": 1,
+      "nom_hotel": "hotel Un",
+      "ville": "ville Un"
+    },
+    {
+      "num_hotel": 2,
+      "nom_hotel": "hotel Deux",
+      "ville": "ville Deux"
+    },
+    {
+      "num_hotel": 3,
+      "nom_hotel": "hotel Trois",
+      "ville": "ville Trois"
+    },
+    {
+      "num_hotel": 4,
+      "nom_hotel": "hotel Quatre",
+      "ville": "ville Quatre"
+    },
+    {
+      "num_hotel": 5,
+      "nom_hotel": "hotel Cinq",
+      "ville": "ville Cinq"
+    }            
+  ],
+  "chambre": [
+    {
+      "num_chambre": 101,
+      "num_hotel": 1,
+      "type": "loft",
+      "prix": 10
+    },
+    {
+      "num_chambre": 102,
+      "num_hotel": 2,
+      "type": "loft",
+      "prix": 20
+    },
+    {
+      "num_chambre": 103,
+      "num_hotel": 3,
+      "type": "loft",
+      "prix": 100
+    },
+    {
+      "num_chambre": 104,
+      "num_hotel": 4,
+      "type": "loft",
+      "prix": 100
+    },
+    {
+      "num_chambre": 105,
+      "num_hotel": 5,
+      "type": "loft",
+      "prix": 100
+    }                
+  ],
+  "reservation": [
+    {
+      "num_hotel": 1,
+      "num_hote": 1,
+      "date_debut": "2016-12-25",
+      "date_fin": "2016-12-31",
+      "num_chambre": 101
+    },
+    {
+      "num_hotel": 2,
+      "num_hote": 2,
+      "date_debut": "2016-12-25",
+      "date_fin": "2016-12-31",
+      "num_chambre": 102
+    },
+    {
+      "num_hotel": 3,
+      "num_hote": 3,
+      "date_debut": "2016-12-25",
+      "date_fin": "2016-12-31",
+      "num_chambre": 103
+    },
+    {
+      "num_hotel": 4,
+      "num_hote": 4,
+      "date_debut": "2016-12-25",
+      "date_fin": "2016-12-31",
+      "num_chambre": 104
+    },
+    {
+      "num_hotel": 5,
+      "num_hote": 5,
+      "date_debut": "2016-12-25",
+      "date_fin": "2016-12-31",
+      "num_chambre": 105
+    }                
+  ],
+  "hote": [
+    {
+      "num_hote": 1,
+      "nom_hote": "hote Un",
+      "adresse_hote": "adresse hote Un"
+    },
+    {
+      "num_hote": 2,
+      "nom_hote": "hote Deux",
+      "adresse_hote": "adresse hote Deux"
+    },
+    {
+      "num_hote": 3,
+      "nom_hote": "hote Trois",
+      "adresse_hote": "adresse hote Trois"
+    },
+    {
+      "num_hote": 4,
+      "nom_hote": "hote Quatre",
+      "adresse_hote": "adresse hote Quatre"
+    },
+    {
+      "num_hote": 5,
+      "nom_hote": "hote Cinq",
+      "adresse_hote": "adresse hote Cinq"
+    }                
+  ]  
+}      
