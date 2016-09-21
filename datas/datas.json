@@ -2,7 +2,7 @@
   "hotel": [
     {
       "num_hotel": 1,
-      "nom_hotel": "hotel Un",
+      "nom_hotel": "hotel Gouverneur",
       "ville": "ville Un"
     },
     {
@@ -35,7 +35,7 @@
     },
     {
       "num_chambre": 102,
-      "num_hotel": 2,
+      "num_hotel": 1,
       "type": "loft",
       "prix": 20
     },
@@ -53,7 +53,7 @@
     },
     {
       "num_chambre": 105,
-      "num_hotel": 5,
+      "num_hotel": 51,
       "type": "loft",
       "prix": 100
     }                
@@ -67,7 +67,7 @@
       "num_chambre": 101
     },
     {
-      "num_hotel": 2,
+      "num_hotel": 1,
       "num_hote": 2,
       "date_debut": "2016-12-25",
       "date_fin": "2016-12-31",

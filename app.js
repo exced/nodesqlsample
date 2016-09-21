@@ -9,7 +9,7 @@ db.serialize(function() {
   db.run("CREATE TABLE IF NOT EXISTS hotel (num_hotel INT, nom_hotel TEXT, ville TEXT)"); // hotel
   db.run("CREATE TABLE IF NOT EXISTS chambre (num_chambre INT, num_hotel INT, type TEXT, prix INT)"); // chambre
   db.run("CREATE TABLE IF NOT EXISTS reservation (num_hotel INT, num_hote INT, date_debut TEXT, date_fin TEXT, num_chambre INT)"); // reservation
-  db.run("CREATE TABLE IF NOT EXISTS hote (num_hote INT, nom_hotel TEXT, adresse_hote TEXT)"); // hote
+  db.run("CREATE TABLE IF NOT EXISTS hote (num_hote INT, nom_hote TEXT, adresse_hote TEXT)"); // hote
 
   /* INSERT DATAS */
 	var stmt = db.prepare("INSERT INTO hotel VALUES (?,?,?)"); // hotel
@@ -18,35 +18,88 @@ db.serialize(function() {
 	});	
 
 	stmt = db.prepare("INSERT INTO chambre VALUES (?,?,?,?)"); // chambre
-	datas["hotel"].forEach( (item) => {
+	datas["chambre"].forEach( (item) => {
   	stmt.run([item.num_chambre, item.num_hotel, item.type, item.prix]);
 	});	
 
 	stmt = db.prepare("INSERT INTO reservation VALUES (?,?,?,?,?)"); // reservation
-	datas["hotel"].forEach( (item) => {
+	datas["reservation"].forEach( (item) => {
   	stmt.run([item.num_hotel, item.num_hote, item.date_debut, item.date_fin, item.num_chambre]);
 	});	
 
 	stmt = db.prepare("INSERT INTO hote VALUES (?,?,?)"); // hote
-	datas["hotel"].forEach( (item) => {
+	datas["hote"].forEach( (item) => {
   	stmt.run([item.num_hote, item.nom_hote, item.adresse_hote]);
 	});	
 
 	stmt.finalize();     	
 
 	/* SELECT DATAS */
-  db.each(  "SELECT num_hotel, nom_hotel FROM hotel,chambre" + 
-            "WHERE (" +
-              "chambre.num_hotel=hotel.num_hotel AND chambre.prix > 50)", function(err, row) {
-    console.log("query a :")
+  /* a)
+  db.each(  'SELECT num_hotel FROM chambre ' +
+            'WHERE (chambre.prix > 50)'
+            , function(err, row) {            
     console.log(JSON.stringify(row));
   });
+  */
 
+  /* b)
+  db.each(  'SELECT * FROM hotel,chambre ' +
+            'WHERE (hotel.num_hotel = chambre.num_hotel)'
+            , function(err, row) {            
+    console.log(JSON.stringify(row));
+  });  
+  */
+
+  // TODO
+  /* c) 
+  db.each(  'SELECT nom_hotel FROM hotel,chambre ' +
+            'WHERE (hotel.num_hotel = chambre.num_hotel)'
+            , function(err, row) {            
+    console.log(JSON.stringify(row));
+  });    
+  /*
+
+  /* d)
   db.each("SELECT num_hotel, nom_hotel FROM hotel", function(err, row) {
-    console.log("query d :")
     console.log(JSON.stringify(row));
   });
+  */
 
+  /* e)
+  db.each(  'SELECT num_hotel, num_chambre FROM chambre ' +
+            'WHERE (chambre.prix < 50)'
+            , function(err, row) {
+    console.log(JSON.stringify(row));
+  });  
+  */
+
+  /* f)
+  db.each(  'SELECT nom_hote, adresse_hote FROM hote', function(err, row) {
+    console.log(JSON.stringify(row));
+  });  
+  */  
+
+  /* g)
+  db.each(  'SELECT prix, type ' +
+            'FROM hotel , chambre ' +
+            'WHERE ( ' +
+            'hotel.nom_hotel = "hotel Gouverneur" ' +
+            'AND hotel.num_hotel = chambre.num_hotel )'
+            , function(err, row) {
+    console.log(JSON.stringify(row));
+  });   
+  */
+
+  db.each(  'SELECT num_hote, nom_hote ' +
+            'FROM hotel , reservation, hote ' +
+            'WHERE ( ' +
+            'hotel.nom_hotel = "hotel Gouverneur" ' +
+            'AND hotel.num_hotel = reservation.num_hotel '
+            'AND reservation.num_hote = hote.num_hote )'
+            , function(err, row) {
+    console.log(JSON.stringify(row));
+  });    
 
 
 });           
