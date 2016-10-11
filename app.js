@@ -35,56 +35,39 @@ db.serialize(function() {
 	stmt.finalize();
 
   /* SELECT DATAS */
-  /*
   db.each(  'SELECT num_hotel FROM chambre ' +
             'WHERE (chambre.prix > 50)'
             , function(err, row) {            
     console.log(JSON.stringify(row));
   });
-  */
-  
-  /*
+
   db.each(  'SELECT * FROM hotel,chambre ' +
             'WHERE (hotel.num_hotel = chambre.num_hotel)'
             , function(err, row) {            
     console.log(JSON.stringify(row));
   });
-  */  
 
-  /*
   db.each(  'SELECT nom_hotel FROM hotel,chambre ' +
             'WHERE (hotel.num_hotel = chambre.num_hotel '+
             'AND chambre.prix > 50)'
             , function(err, row) {            
     console.log(JSON.stringify(row));
   });    
-  */
 
-  /*
   db.each("SELECT num_hotel, nom_hotel FROM hotel", function(err, row) {
     console.log(JSON.stringify(row));
   });  
-  */
 
-  /*
   db.each(  'SELECT num_hotel, num_chambre FROM chambre ' +
             'WHERE (chambre.prix < 50)'
             , function(err, row) {
     console.log(JSON.stringify(row));
   });  
-  */
 
-  /*
   db.each(  'SELECT nom_hote, adresse_hote FROM hote', function(err, row) {
     console.log(JSON.stringify(row));
   });
-  */ 
 
-  /* f bis
-
-  */ 
-
-  /*
   db.each(  'SELECT prix, type ' +
             'FROM hotel , chambre ' +
             'WHERE ( ' +
@@ -92,10 +75,8 @@ db.serialize(function() {
             'AND hotel.num_hotel = chambre.num_hotel )'
             , function(err, row) {
     console.log(JSON.stringify(row));
-  });
-  */   
+  });   
 
-  /*
   db.each(  'SELECT num_hote, nom_hote ' +
             'FROM hotel , reservation, hote ' +
             'WHERE ( ' +
@@ -107,12 +88,19 @@ db.serialize(function() {
             , function(err, row) {
     console.log(JSON.stringify(row));
   });   
-  */
 
-  /* i
-  */
+  db.each(  'SELECT num_chambre, num_hotel, type, prix, nom_hote ' +
+            'FROM hotel , chambre, reservation, hote ' +
+            'WHERE ( ' +
+            'hotel.nom_hotel = "hotel Gouverneur" ' +
+            'AND hotel.num_hotel = chambre.num_hotel ' +
+            'AND hote.num_hote = reservation.num_hote ' +
+            'AND reservation.num_chambre = chambre.num_chambre ' +
+            ')'
+            , function(err, row) {
+    console.log(JSON.stringify(row));
+  });
 
-  /*
   db.each(  'SELECT num_hote, nom_hote, adresse_hote ' +
             'FROM hotel , reservation, hote ' +
             'WHERE ( ' +
@@ -124,9 +112,6 @@ db.serialize(function() {
             , function(err, row) {
     console.log(JSON.stringify(row));
   });
-  */ 
-  
-
 
 
 });           
