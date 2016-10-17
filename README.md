@@ -6,3 +6,9 @@ Les tables du système relationnel sont les suivantes :
 - Chambre(numChambre, numHotel, type, prix)
 - Reservation(numHotel, numHote, dateDebut, dateFin, numChambre)
 - Hote(numHote, nomHote, adresseHote)
+
+# Run
+```bash
+npm install
+npm start
+```
